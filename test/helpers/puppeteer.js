@@ -24,9 +24,13 @@ const getPort = (stdout) => {
 
 const replace = (path, content) => {
   return {
-    then(r) {
-      writeFileSync(path, content);
-      setTimeout(r, 5000);
+    then(r, f) {
+      try {
+        writeFileSync(path, content);
+        setTimeout(r, 5000);
+      } catch (e) {
+        f(e);
+      }
     }
   };
 };

@@ -7,12 +7,13 @@ const execa = require('execa');
 const { browser } = require('../helpers/puppeteer');
 
 test('multi compiler', browser, async (t, page, util) => {
+  t.timeout(60000);
   const { getPort, replace, setup, waitForBuild } = util;
   const fixturePath = await setup('multi', 'multi-hmr');
   const proc = execa('wp', [], { cwd: fixturePath });
   const { stdout, stderr } = proc;
   const port = await getPort(stdout);
-  const url = `http://localhost:${port}`;
+  const url = `http://localhost:${port.trim()}`;
 
   await waitForBuild(stderr);
   await page.goto(url, {

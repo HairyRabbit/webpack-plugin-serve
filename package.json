@@ -26,7 +26,7 @@
     "lint": "eslint --fix --cache lib test",
     "lint-staged": "lint-staged",
     "security": "npm audit",
-    "test": "ava"
+    "test": "ava --timeout=60s"
   },
   "files": [
     "client.js",
@@ -38,7 +38,7 @@
     "webpack": "^4.20.2"
   },
   "dependencies": {
-    "@hapi/joi": "^17.1.1",
+    "@hapi/joi": "^15.1.1",
     "chalk": "^3.0.0",
     "connect-history-api-fallback": "^1.5.0",
     "globby": "^11.0.0",
@@ -97,8 +97,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "nyc": {
