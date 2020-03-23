@@ -7,7 +7,7 @@ const execa = require('execa');
 const { browser } = require('../helpers/puppeteer');
 
 test('multi compiler', browser, async (t, page, util) => {
-  t.timeout(60000);
+  t.timeout(240000);
   const { getPort, replace, setup, waitForBuild } = util;
   const fixturePath = await setup('multi', 'multi-hmr');
   const proc = execa('wp', [], { cwd: fixturePath });

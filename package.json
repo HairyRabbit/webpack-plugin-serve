@@ -26,7 +26,7 @@
     "lint": "eslint --fix --cache lib test",
     "lint-staged": "lint-staged",
     "security": "echo 'npm audit is dumb'",
-    "test": "ava --timeout=60s"
+    "test": "ava --timeout=240s"
   },
   "files": [
     "client.js",
